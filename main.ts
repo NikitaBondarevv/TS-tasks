@@ -23,16 +23,33 @@ interface Address {
 }
 
 // 2
-interface User {
+/*interface User {
   name: string
   age: number
   mail: string
   address?: Address
   gender?: "f" | "m"
   role: "guest" | "manager" | "staff" | "admin" | "owner"
-}
+}*/
 
 // 3
+interface User {
+  name: string
+  age: number
+}
+
+interface Client {
+  title: string
+  id: string
+}
+
+function getInfo(data: User | Client) {
+  if ("name" in data) console.log(data.name);
+  else console.log(data.title);
+}
+
+getInfo({name: "Nikita", age: 21 });
+getInfo({title: "Nikita", id: "1" });
 
 // 4
 /*interface Product {

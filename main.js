@@ -11,3 +11,11 @@ function getProductInfo(product) {
 }
 getProductInfo();
 getProductInfo({ title: 'toy', price: 1.5 });
+function getInfo(data) {
+    if ("name" in data)
+        console.log(data.name);
+    else
+        console.log(data.title);
+}
+getInfo({ name: "Nikita", age: 21 });
+getInfo({ title: "Nikita", id: "1" });
