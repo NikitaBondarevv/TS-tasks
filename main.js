@@ -19,3 +19,31 @@ function getInfo(data) {
 }
 getInfo({ name: "Nikita", age: 21 });
 getInfo({ title: "Nikita", id: "1" });
+const printNames = (items) => {
+    items.forEach(item => console.log(item.name));
+};
+printNames([{ name: 'ook' }]);
+printNames([{ age: 2, name: 'ook' }]);
+printNames([{ lastName: 'test', name: 'ook' }]);
+const getTextLength = (value) => {
+    if (typeof value === "object")
+        return value.name.length;
+    return value.length;
+};
+getTextLength('test');
+getTextLength({ name: 'test' });
+// 3
+const getMiddleArray = (arr) => {
+    const middleElement = Math.floor(arr.length / 2);
+    let result = arr[middleElement];
+    if (typeof result === "string")
+        return result += result;
+    if (typeof result === "number")
+        return result += result;
+    return false;
+};
+getMiddleArray([1, 2, 3]);
+getMiddleArray([1, 2, 3, 4]);
+getMiddleArray(['a', 'b', 'c']);
+getMiddleArray(['a', 'b', 'c', 'd']);
+getMiddleArray([{}, {}, {}]);
