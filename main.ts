@@ -77,3 +77,47 @@ type Toy = Product & {
 type Electronics = Product & {
   children: boolean
 }
+
+// 1
+interface IName {
+  name: string
+}
+
+const printNames = <T extends IName>(items: T[]) => {
+  items.forEach(item => console.log(item.name));
+}
+
+printNames([{ name: 'ook' }]);
+printNames([{ age: 2, name: 'ook' }]);
+printNames([{ lastName: 'test', name: 'ook' }]);
+
+// 2
+type getTextLength = (value: string | { name: string }) => number | { name: string };
+
+const getTextLength: getTextLength = (value) => {
+  if (typeof value === "object") return value.name.length;
+
+  return value.length;
+}
+
+getTextLength('test');
+getTextLength({ name: 'test' });
+
+// 3
+type getMiddleArray = <T>(arr: T[]) => number | string | boolean;
+
+const getMiddleArray: getMiddleArray = (arr) => {
+  const middleElement = Math.floor(arr.length / 2);
+  let result = arr[middleElement];
+
+  if (typeof result === "string") return result + result;
+  if (typeof result === "number") return result ** 2;
+
+  return false;
+}
+
+getMiddleArray([1, 2, 3]);
+getMiddleArray([1, 2, 3, 4]);
+getMiddleArray(['a', 'b', 'c']);
+getMiddleArray(['a', 'b', 'c', 'd']);
+getMiddleArray([{}, {}, {}]);
