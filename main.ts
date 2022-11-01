@@ -121,3 +121,29 @@ getMiddleArray([1, 2, 3, 4]);
 getMiddleArray(['a', 'b', 'c']);
 getMiddleArray(['a', 'b', 'c', 'd']);
 getMiddleArray([{}, {}, {}]);
+
+// 1
+interface IResponse {
+  status: { loaded: boolean, error?: unknown },
+  body?: unknown
+}
+
+const response1: IResponse = {
+  status: { loaded: true },
+  body: {
+    users: ['Jhon', 'Donald']
+  }
+}
+
+const response2: IResponse = {
+  status: { loaded: false, error: { message: 'Server does not respond' } },
+}
+
+const response3: IResponse = {
+  status: { loaded: true },
+  body: {
+    name: 'Jhon',
+    age: 25,
+    id: '6s7df95sd7df',
+  }
+}
