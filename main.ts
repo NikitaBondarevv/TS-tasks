@@ -123,12 +123,12 @@ getMiddleArray(['a', 'b', 'c', 'd']);
 getMiddleArray([{}, {}, {}]);
 
 // 1
-interface IResponse <Type> {
+interface IResponse<Type> {
   status: { loaded: boolean, error?: Type },
   body?: Type
 }
 
-const response1: IResponse <{ users: string[] }>= {
+const response1: IResponse<{ users: string[] }> = {
   status: { loaded: true },
   body: {
     users: ['Jhon', 'Donald']
