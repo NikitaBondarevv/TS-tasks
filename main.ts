@@ -104,12 +104,14 @@ getTextLength('test');
 getTextLength({ name: 'test' });
 
 // 3
-const getMiddleArray = (arr: any[]) => {
+type getMiddleArray = <T>(arr: T[]) => number | string | boolean;
+
+const getMiddleArray: getMiddleArray = (arr) => {
   const middleElement = Math.floor(arr.length / 2);
   let result = arr[middleElement];
 
-  if (typeof result === "string") return result += result;
-  if (typeof result === "number") return result += result;
+  if (typeof result === "string") return result + result;
+  if (typeof result === "number") return result ** 2;
 
   return false;
 }
