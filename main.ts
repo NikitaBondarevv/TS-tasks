@@ -123,23 +123,23 @@ getMiddleArray(['a', 'b', 'c', 'd']);
 getMiddleArray([{}, {}, {}]);
 
 // 1
-interface IResponse<Type> {
-  status: { loaded: boolean, error?: Type },
-  body?: Type
+interface IResponse<Error, Body> {
+  status: { loaded: boolean, error?: Error },
+  body?: Body
 }
 
-const response1: IResponse<{ users: string[] }> = {
+const response1: IResponse<undefined, { users: string[] }> = {
   status: { loaded: true },
   body: {
     users: ['Jhon', 'Donald']
   }
 }
 
-const response2: IResponse<{ message: string }> = {
+const response2: IResponse<{ message: string }, undefined> = {
   status: { loaded: false, error: { message: 'Server does not respond' } },
 }
 
-const response3: IResponse<{ name: string, age: number, id: string }> = {
+const response3: IResponse<undefined, { name: string, age: number, id: string }> = {
   status: { loaded: true },
   body: {
     name: 'Jhon',
